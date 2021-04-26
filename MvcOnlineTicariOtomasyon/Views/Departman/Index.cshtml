@@ -1,0 +1,30 @@
+﻿@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>ID</th>
+        <th>Departman Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Departmanid</td>
+            <td>@item.DepartmanAd</td>
+            @*kategori controllerine git/KategoriSil ActionResultgit//foreach dönen ıd al*@
+            <td><a href="/Departman/DepartmanSil/@item.Departmanid" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Departman/DepartmanGuncelle/@item.Departmanid" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanDetay/@item.Departmanid" class="btn btn-group" style="background-color:fuchsia">Detaylar</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Departman/DepartmanEkle/" class="btn btn-primary">DEPARTMAN EKLE</a>
+

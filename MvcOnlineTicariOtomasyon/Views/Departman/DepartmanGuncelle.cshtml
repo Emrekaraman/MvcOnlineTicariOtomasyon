@@ -1,0 +1,23 @@
+﻿@model Departman
+@{
+    ViewBag.Title = "DepartmanGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Departman Güncelleme</h2>
+<br />
+
+@*bu sayfa yüklendikten sonra hangi post işlemi gerçekletirdiğinde hangi ActionResult çalışıcak
+    ActionResult ismi oluşturduk/ controller ismi/ne zaman çalışacağı*@
+@using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.DepartmanAd)
+        @Html.TextAreaFor(x => x.DepartmanAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.DepartmanAd)
+    </div>
+    <br />
+    @Html.HiddenFor(x=>x.Departmanid)
+    <button class="btn btn-warning">Güncelle</button>
+
+}
